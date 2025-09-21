@@ -1,0 +1,2 @@
+class AvaliacaoModel:
+    pass 
