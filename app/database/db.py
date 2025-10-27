@@ -19,7 +19,7 @@ def init_db():
     """
     )
     cursor.execute(
-    """CREATE TABLE IF NOT EXISTS user (
+    """CREATE TABLE IF NOT EXISTS player (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         classe TEXT NOT NULL,
