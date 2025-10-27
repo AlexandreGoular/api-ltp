@@ -1,9 +1,38 @@
 from flask import Blueprint, request, jsonify
 from app.dao.avaliacao_dao import AvaliacaoDAO
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required
+from flask_bcrypt import Bcrypt 
+
+app.config["JWT_SECRET_KEY"] = "super_secret_key"
+jwt = JWTManager(app)
+bcrypt = Bcrypt(app)
+
+login = {
+    "user": "",
+    "senha": ""
+}
 
 avaliacao_bp = Blueprint("avaliacao", __name__)
 
+@avaliacao_bp.route("/registro", methods=["POST"])
+def registro():
+    data = request.get_json()
+    login["user"] = data['nome']
+    login["senha"] = bcrypt.generate_password_hash( data['senha']).decode("utf-8")
+    return jsonify({"message": "Login criado"})
+
+@avaliacao_bp.route("/login", methods=["POST"])
+def hello():
+    data = request.get_json()
+    isEqual = bcrypt.check_password_hash(login['senha'], data['senha'])
+    if login['user'] == data['nome'] and isEqual:
+        token = create_access_token(identity=login["user"])
+        return jsonify({"message": "Bem vindo, " token})
+    else:
+        return jsonify({"message": "Erro ao efetuar login"})
+
 @avaliacao_bp.route("/", methods=["GET"])
+@jwt_required()
 def list_avaliacoes():
     avaliacoes = AvaliacaoDAO.get_all_avaliacoes()
     return jsonify([{"id": u.id, "email": u.email, "avaliacao": u.avaliacao} for u in avaliacoes])
