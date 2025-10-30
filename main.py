@@ -8,7 +8,6 @@ init_db()
 
 app.config["JWT_SECRET_KEY"] = "super_secret_key"
 
-# inicializa as extensões com o app
 bcrypt.init_app(app)
 jwt.init_app(app)
 
