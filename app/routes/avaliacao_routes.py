@@ -1,11 +1,9 @@
+
+from app.extensions import bcrypt
 from flask import Blueprint, request, jsonify
 from app.dao.avaliacao_dao import AvaliacaoDAO
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 from flask_bcrypt import Bcrypt 
-
-app.config["JWT_SECRET_KEY"] = "super_secret_key"
-jwt = JWTManager(app)
-bcrypt = Bcrypt(app)
 
 login = {
     "user": "",
@@ -27,7 +25,7 @@ def hello():
     isEqual = bcrypt.check_password_hash(login['senha'], data['senha'])
     if login['user'] == data['nome'] and isEqual:
         token = create_access_token(identity=login["user"])
-        return jsonify({"message": "Bem vindo, " token})
+        return jsonify({"message": "Bem vindo", "token": token})
     else:
         return jsonify({"message": "Erro ao efetuar login"})
 
