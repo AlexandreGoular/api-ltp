@@ -6,12 +6,12 @@ autor_bp = Blueprint("autor", __name__)
 @autor_bp.route("/", methods=["GET"])
 def list_autors():
     autores = AutorDAO.get_all_autors()
-    return jsonify([{"id": u.id, "nome": u.nome, "descricao": u.descricao} for u in missoes])
+    return jsonify([{"id": u.id, "nome": u.nome, "descricao": u.descricao} for u in autores])
 
 @autor_bp.route("/", methods=["POST"])
 def create_autor():
     data = request.get_json()
-    if not data or "nome" not in data or "descricao":
+    if not data or "nome" not in data or "descricao" not in data:
         return jsonify({"error": "Campos 'nome', 'descricao' são obrigatorios"}), 400 
     AutorDAO.create(data["nome"], data["descricao"])
     return jsonify({"message": "Autor criado"}), 201 
