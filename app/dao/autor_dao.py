@@ -31,7 +31,7 @@ class AutorDAO:
     def update_autor_by_id(autor, autor_id):
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute("UPDATE autor SET autor = ? WHERE id = ?", (autor, autor_id))
+        cursor.execute("UPDATE autor SET descricao = ? WHERE id = ?", (autor, autor_id))
         conn.commit()
         conn.close()
 

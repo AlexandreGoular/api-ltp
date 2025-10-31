@@ -39,12 +39,14 @@ def init_db():
     """
     )
     cursor.execute(
-    """CREATE TABLE IF NOT EXISTS autor
+    """ CREATE TABLE IF NOT EXISTS autor (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
-        descricao TEXY NOT NULL
-    """
+        descricao TEXT NOT NULL
     )
+    """
+)
+
 
     conn.commit()
     conn.close()
