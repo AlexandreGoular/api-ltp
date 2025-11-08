@@ -9,7 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 init_db()
 
-app.config["JWT_SECRET_KEY"] = "super_secret_key"
+app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
 
 bcrypt.init_app(app)
 jwt.init_app(app)
