@@ -57,6 +57,7 @@ def update_avaliacao(avaliacao_id):
     return jsonify({"message": f"Avaliacao {avaliacao_id} atualizada com sucesso"}), 200
 
 @avaliacao_bp.route("/<int:avaliacao_id>", methods=["GET"])
+@jwt_required()
 def get_avaliacao(avaliacao_id):
     avaliacao = AvaliacaoDAO.get_avaliacao_by_id(avaliacao_id)
     if avaliacao:
