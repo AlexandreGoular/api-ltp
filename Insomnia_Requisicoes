@@ -1,0 +1,101 @@
+type: collection.insomnia.rest/5.0
+name: API
+meta:
+  id: wrk_32f66a4faf5848eabff4197642f61436
+  created: 1763035594217
+  modified: 1763035594217
+  description: ""
+collection:
+  - url: https://api-dungeons-souls.onrender.com/avaliacoes/registro
+    name: Registro
+    meta:
+      id: req_d11a2bcdb57a49c081447642c92186c7
+      created: 1763035602743
+      modified: 1763036142683
+      isPrivate: false
+      description: ""
+      sortKey: -1763035602743
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "teste",
+        	"senha": "123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d790a1385f9d4e8794b8fbc9c09961a6
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_ef886408c08c41fd915a358b31317886
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://api-dungeons-souls.onrender.com/avaliacoes/login
+    name: Login
+    meta:
+      id: req_fb877a61aa9d44438dfa010ddb0315be
+      created: 1763036151269
+      modified: 1763036171651
+      isPrivate: false
+      description: ""
+      sortKey: -1763036151269
+    method: POST
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://api-dungeons-souls.onrender.com/avaliacoes
+    name: Avaliacoes
+    meta:
+      id: req_d6faf367b38f481e83bd93f0ae07e5fb
+      created: 1763036176078
+      modified: 1763036208383
+      isPrivate: false
+      description: ""
+      sortKey: -1763036176078
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+        id: pair_3f83fcfaab8f4bfa9b20dd5edffe5faf
+      - id: pair_4f617ecec6ad41ba904f4c2ccee31dcb
+        name: Authorization
+        value: ""
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_2621b904c6fd73d9dd74e4caa1fe14d380d82ace
+    created: 1763035594243
+    modified: 1763035594243
+environments:
+  name: Base Environment
+  meta:
+    id: env_2621b904c6fd73d9dd74e4caa1fe14d380d82ace
+    created: 1763035594239
+    modified: 1763035594239
+    isPrivate: false
